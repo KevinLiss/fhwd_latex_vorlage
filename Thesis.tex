@@ -1,0 +1,98 @@
+\input{config/Config}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Parameter - Hier auf die eigene Arbeit anpassen
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\dokumententyp}{Praxisarbeit}
+\newcommand{\abgabedatum}{\today} 
+\newcommand{\ort}{Ort} 
+\newcommand{\koorperationsunternehmen}{Firma}
+\newcommand{\dokumententitel}{Thema der Arbeit}
+\newcommand{\dokumentenautor}{Name des Autors}
+\newcommand{\dokumentenautoradress}{Straße Hausnummer\\PLZ Ort}
+\newcommand{\dokumentenpruefer}{Dozent}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\hypersetup{
+  colorlinks=false,
+  pdfborder={0 0 0},
+  pdftitle=\dokumententitel,
+  pdfauthor=\dokumentenautor
+} 
+
+\begin{document}
+
+% Römische Seitennummerierung
+\pagenumbering{Roman}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Titelseite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{./chapter/Titelseite}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Verzeichnisse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Sperrvermerk
+\include{./chapter/Sperrvermerk}
+
+% Inhaltsverzeichnis
+\tableofcontents\newpage
+
+% Abkürzungsverzeichnis
+\printglossary[type=\acronymtype, style=mylist, title=Abkürzungsverzeichnis, toctitle=Abkürzungsverzeichnis]\newpage
+\setcounter{table}{0} % printglossary erzeugt eine Tabelle, die die Nummerierung der "echten" Tabellen durcheinander bringt. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Verzeichnisse
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Abbildungsverzeichnis
+\fancyhead[R]{\listfigurename}
+\listoffigures\newpage
+
+% Tabellenverzeichnis
+\fancyhead[R]{\listtablename}
+\listoftables\newpage
+
+% Quelltextverzeichnis
+\fancyhead[R]{\lstlistlistingname}
+\lstlistoflistings\newpage
+
+% Kapitelüberschriften für den Arbeitstext
+\fancyhead[R]{\leftmark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inhalt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Arabische Seitennummerierung
+\pagenumbering{arabic} 
+
+\include{./chapter/Einleitung}
+
+\include{./chapter/Grundlagen}
+
+\include{./chapter/Praxisteil}
+
+\include{./chapter/Schlussbetrachtung}
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./chapter/Anhang}
+
+\include{./chapter/Quellenverzeichnis}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{./chapter/Ehrenwoertliche_Erklaerung}
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}
