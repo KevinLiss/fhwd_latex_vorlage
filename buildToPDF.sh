@@ -1,3 +1,5 @@
+clear
+
 pdflatex ./Thesis -draftmode
 biber ./Thesis
 makeindex -s ./Thesis.ist -t ./Thesis.alg -o ./Thesis.acr ./Thesis.acn
@@ -6,10 +8,6 @@ pdflatex ./Thesis -draftmode
 pdflatex ./Thesis
 
 zip -r ./Quellen.zip ./quellen/*
-
-# Auto Git-Commit
-git add .
-git commit -am "$(date +"%D %T")"
 
 # Remove unassasary files
 # ==all Thesis files
@@ -35,6 +33,7 @@ rm ./Thesis.toc
 rm ./Thesis.bbl
 rm ./Thesis.bbl
 rm ./Thesis.blg
+
 # ==all.aux Files
 rm ./chapter/Anhang.aux
 rm ./chapter/Ehrenwoertliche_Erklaerung.aux
@@ -45,4 +44,6 @@ rm ./chapter/Quellenverzeichnis.aux
 rm ./chapter/Schlussbetrachtung.aux
 rm ./chapter/Sperrvermerk.aux
 
-clear
+# Auto Git-Commit
+git add .
+git commit -am "$(date +"%D %T")"
