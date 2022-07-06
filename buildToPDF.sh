@@ -33,6 +33,7 @@ rm ./Thesis.toc
 rm ./Thesis.bbl
 rm ./Thesis.bbl
 rm ./Thesis.blg
+rm ./Thesis.blg
 
 # ==all.aux Files
 rm ./chapter/Anhang.aux
