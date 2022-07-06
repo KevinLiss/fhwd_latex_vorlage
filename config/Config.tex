@@ -95,12 +95,17 @@ final             % draft beschleunigt die Kompilierung
     %url=false,
     date=long,                
     dashed=false, 
-    maxcitenames=3,           % max. Anzahl Autorennamen in Zitaten
+    maxcitenames=1,           % max. Anzahl Autorennamen in Zitaten
     maxbibnames=99,           % max. Anzahl Autorennamen im Quellenverzeichnis
     %backend=bibtex           % Ggf. für ältere Distributionen bibtex verwenden
     backend=biber
 ]{biblatex}
-  
+
+% Et. al für andothers
+\DefineBibliographyStrings{german} {
+  andothers = {et\addabbrvspace al\adddot}
+}
+
 % Bibliograpthy
 \bibliography{library/library}
 
@@ -160,13 +165,15 @@ final             % draft beschleunigt die Kompilierung
 
 % Anpassungen der Formatierung an Eclipse-Aussehen 
 % http://jevopi.blogspot.de/2010/03/nicely-formatted-listings-in-latex-with.html
-%\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
-%\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
-%\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
+\definecolor{sh_comment}{rgb}{0.12, 0.38, 0.18 } %adjusted, in Eclipse: {0.25, 0.42, 0.30 } = #3F6A4D
+\definecolor{sh_keyword}{rgb}{0.37, 0.08, 0.25}  % #5F1441
+\definecolor{sh_string}{rgb}{0.06, 0.10, 0.98} % #101AF9
 % Für Druckausgabe sollte alles schwarz sein
-\definecolor{sh_comment}{rgb}{0.0, 0.0, 0.0 }
-\definecolor{sh_keyword}{rgb}{0.0, 0.0, 0.0 }
-\definecolor{sh_string}{rgb}{0.0, 0.0, 0.0 }
+% \definecolor{sh_comment}{rgb}{0.0, 0.0, 0.0 }
+% \definecolor{sh_keyword}{rgb}{0.0, 0.0, 0.0 }
+% \definecolor{sh_string}{rgb}{0.0, 0.0, 0.0 }
+
+
 
 \lstset{ %
   language=Java,
@@ -183,7 +190,13 @@ final             % draft beschleunigt die Kompilierung
   keywordstyle=\color{sh_keyword}\bfseries,
   commentstyle=\color{sh_comment}\itshape,
   captionpos=t,
-  lineskip=-0.3em
+  lineskip=-0.3em,
+  numbers=left,
+  firstnumber=1,
+  numberfirstline=true,
+  breaklines=true,
+  breakatwhitespace=true,
+  frame=single,
 }
 
 %\makeatletter
